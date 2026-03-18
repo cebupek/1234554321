@@ -725,6 +725,17 @@ createStars();
 renderCards();
 renderCountDots();
 updateUI();
+function preloadImages() {
+  if (!window.TAROT_CARDS) return;
+  window.TAROT_CARDS.forEach((card, i) => {
+    if (!card.img) return;
+    setTimeout(() => {
+      const img = new Image();
+      img.src = card.img;
+    }, i * 80);
+  });
+}
+preloadImages();
 </script>
 </body>
 </html>
